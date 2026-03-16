@@ -3,7 +3,7 @@
 
 namespace fs = std::filesystem;
 
-int main(int, argc, char* argv[]) {
+int main(int argc, char* argv[]) {
 
     if (argc > 2) {
         std::cout << "Usage: ./ccc <directory>\n";
@@ -18,8 +18,9 @@ int main(int, argc, char* argv[]) {
         if (entry.is_regular_file()) {
             std::string extension = entry.path().extension().string();
 
-            if (extension == ".cpp" || extension == ".py" || extension == ".js" || )
+            if (extension == ".cpp" || extension == ".py" || extension == ".js" ) {
                 std::cout << entry.path() << std::endl;
+            }
         }
     }
 

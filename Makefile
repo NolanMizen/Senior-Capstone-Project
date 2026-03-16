@@ -1,12 +1,11 @@
-	CXX = g++
-	CXXFLAGS = -std=c++17 -Wall -Wextra
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -Wextra
 
-	SRC = src/main.cpp
+SRC = src/main.cpp
+OUT = ccc
 
-	OUT = ccc
+all:
+	$(CXX) $(CXXFLAGS) $(SRC) -o $(OUT)
 
-	all:
-		$(CXX) $(CXXFLAGS) $(SRC) -o $(OUT)
-
-	clean:
-		rm -f $(OUT)
+clean:
+	rm -f $(OUT)
