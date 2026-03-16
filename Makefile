@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -Iinclude
 
-SRC = src/main.cpp src/file_scanner.cpp
+SRC = src/main.cpp src/file_scanner.cpp src/analyzer.cpp
 OUT = ccc
 
 all:
