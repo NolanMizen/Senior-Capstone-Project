@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "file_scanner.h"
+#include "analyzer.h"
 
 int main(int argc, char* argv[]) {
     // grab our command arguments when we run our program ./ccc
@@ -28,6 +29,21 @@ int main(int argc, char* argv[]) {
     std::cout << "Found files:\n";
     for (const auto& file : files) {
         std::cout << "[" << languageToString(file.language) << "]" << file.path << " (" << file.extension << ")\n";
+    }
+
+    // Where we trigger our parsing stub
+    std::cout << "\nBeginning analysis...\n\n";
+
+    // Output our file statistics in a grid
+    for (const auto& file : files) {
+        AnalysisResult result = analyzeFile(file);
+
+        std::cout << "File: " << result.filePath << "\n";
+        std::cout << "Language: " << languageToString(result.language) << "\n";
+        std::cout << "Status: " << (result.success ? "Success" : "Failed") << "\n";
+        std::cout << "Message: " << result.message << "\n";
+        std::cout << "Total Lines: " << result.totalLines << "\n";
+        std::cout << "Non-Empty Lines: " << result.nonEmptyLines << "\n\n";
     }
 
     return 0;
