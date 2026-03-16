@@ -16,7 +16,7 @@ int main(int argc, char* argv[]) {
     std::cout << "Scanning directory: " << path << "\n\n";
 
     // scan our directory with the function from file_scanner.h and store them in our vector
-    std::vector<std::string> files = scanDirectory(path);
+    std::vector<SourceFile> files = scanDirectory(path);
 
     // if there aren't any files, then we send a message and return
     if (files.empty()) {
@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
     // output our vector of strings with all of the filetypes that our program found
     std::cout << "Found files:\n";
     for (const auto& file : files) {
-        std::cout << file << std::endl;
+        std::cout << "[" << languageToString(file.language) << "]" << file.path << " (" << file.extension << ")\n";
     }
 
     return 0;
